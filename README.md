@@ -32,9 +32,3 @@ Vehicle Dynamics Simulator is an honours-stage C++ project that models and visua
 ## Notes
 - External dependencies (`external/`) include GLFW and GLAD and are tracked as source. Build artifacts are ignored by `.gitignore`.
 - If CMake reports missing source files, ensure you run `cmake` from the project root and that source files are present and correctly referenced in `CMakeLists.txt`.
-
-## Contributing
-- Create feature branches, keep commits focused, and open pull requests for review.
-
-## License
-- Add a `LICENSE` file to indicate the intended license for this repository.
