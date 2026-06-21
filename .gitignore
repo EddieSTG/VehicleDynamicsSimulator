@@ -1,0 +1,71 @@
+# Build outputs
+out/
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.user
+*.VC.db
+*.VC.VC.opendb
+
+# Binaries
+*.exe
+*.obj
+*.ilk
+*.pdb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Ninja
+.ninja_deps
+.ninja_log
+
+# CMake generated
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# Visual C++
+*.vcxproj*
+*.vcproj*
+*.idb
+*.ipch
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Coverage
+coverage/
+
+# Ignore build output produced by subprojects
+**/build/
+
+# Keep external sources tracked (do not ignore /external), but ignore generated files there
+external/**/build/
+external/**/CMakeFiles/
+external/**/cmake_install.cmake
+
+# Node modules (if any)
+node_modules/
+
+# Ignore user-specific files
+*.local
+
+# Allow checking in .gitignore itself
