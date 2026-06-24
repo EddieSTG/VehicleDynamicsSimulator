@@ -21,9 +21,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Ninja (Ubuntu)
+    - name: Install Ninja and Linux build dependencies (Ubuntu)
       if: runner.os == 'Linux'
-      run: sudo apt-get update && sudo apt-get install -y ninja-build
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ninja-build libwayland-dev libxkbcommon-dev
 
     - name: Install Ninja (macOS)
       if: runner.os == 'macOS'
