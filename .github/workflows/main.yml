@@ -25,7 +25,16 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build libwayland-dev libxkbcommon-dev
+        sudo apt-get install -y \
+          ninja-build \
+          libwayland-dev \
+          libxkbcommon-dev \
+          libx11-dev \
+          libxrandr-dev \
+          libxcursor-dev \
+          libxinerama-dev \
+          libxi-dev \
+          libgl1-mesa-dev
 
     - name: Install Ninja (macOS)
       if: runner.os == 'macOS'
