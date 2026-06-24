@@ -29,6 +29,9 @@ Vehicle Dynamics Simulator is an honours-stage C++ project that models and visua
 
    `./build/VehicleDynamicsSimulation/VehicleDynamicsSimulation.exe`
 
+4. or, copy & paste this in: 
+   `cmake -S . -B build -G Ninja cmake --build build --config Release ./build VehicleDynamicsSimulation`
+
 ## Notes
 - External dependencies (`external/`) include GLFW and GLAD and are tracked as source. Build artifacts are ignored by `.gitignore`.
 - If CMake reports missing source files, ensure you run `cmake` from the project root and that source files are present and correctly referenced in `CMakeLists.txt`.

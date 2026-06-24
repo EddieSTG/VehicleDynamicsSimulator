@@ -1,7 +1,7 @@
 ﻿# CMakeList.txt : Top-level CMake project file, do global configuration
 # and include sub-projects here.
 #
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.10...3.28)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -25,14 +25,29 @@ target_include_directories(glad PUBLIC
 # Executable
 add_executable(VehicleDynamicsSimulation
     VehicleDynamicsSimulation/main.cpp
+    VehicleDynamicsSimulation/HelperFunctions/HelperFunctionsOpenGL.cpp
+)
+
+target_include_directories(VehicleDynamicsSimulation PRIVATE
+    ${CMAKE_SOURCE_DIR}/VehicleDynamicsSimulation
 )
 
 target_link_libraries(VehicleDynamicsSimulation
     PRIVATE
     glfw
     glad
-    opengl32
 )
+
+# Link platform-specific OpenGL libraries/frameworks
+if (WIN32)
+    target_link_libraries(VehicleDynamicsSimulation PRIVATE opengl32)
+elseif(APPLE)
+    # Use the OpenGL framework on macOS
+    target_link_libraries(VehicleDynamicsSimulation PRIVATE "-framework OpenGL")
+else()
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(VehicleDynamicsSimulation PRIVATE OpenGL::GL)
+endif()
 
 set_property(TARGET VehicleDynamicsSimulation PROPERTY CXX_STANDARD 20)
 
