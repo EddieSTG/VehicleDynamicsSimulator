@@ -1,0 +1,31 @@
+name: CMake Cross-Platform Build
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      # Set fail-fast to false so that if one platform fails, the others still finish
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Release]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Configure CMake
+      # This configures CMake in a 'build' subdirectory
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
+
+    - name: Build project
+      # This builds the configuration we just generated
+      run: cmake --build ${{github.workspace}}/build --config ${{matrix.build_type}}
