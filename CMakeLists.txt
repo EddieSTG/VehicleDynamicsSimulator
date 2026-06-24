@@ -26,7 +26,7 @@ target_include_directories(glad PUBLIC
 add_executable(VehicleDynamicsSimulation
     VehicleDynamicsSimulation/main.cpp
     VehicleDynamicsSimulation/HelperFunctions/HelperFunctionsOpenGL.cpp
-)
+ "VehicleDynamicsSimulation/Window/windowManager.cpp" "VehicleDynamicsSimulation/Window/windowManager.h")
 
 target_include_directories(VehicleDynamicsSimulation PRIVATE
     ${CMAKE_SOURCE_DIR}/VehicleDynamicsSimulation
